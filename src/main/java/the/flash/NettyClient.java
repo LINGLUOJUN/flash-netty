@@ -44,6 +44,13 @@ public class NettyClient {
         connect(bootstrap, "juejin.im", 80, MAX_RETRY);
     }
 
+    /**
+     * 1.思考 dubbo重试机制是否在这里实现的？
+     * @param bootstrap
+     * @param host
+     * @param port
+     * @param retry
+     */
     private static void connect(Bootstrap bootstrap, String host, int port, int retry) {
         bootstrap.connect(host, port).addListener(future -> {
             if (future.isSuccess()) {
